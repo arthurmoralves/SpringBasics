@@ -89,7 +89,7 @@
       <workItem from="1633005833428" duration="8161000" />
       <workItem from="1633036478903" duration="1236000" />
       <workItem from="1633078223940" duration="4249000" />
-      <workItem from="1633115410069" duration="6362000" />
+      <workItem from="1633115410069" duration="6666000" />
     </task>
     <servers />
   </component>
@@ -119,6 +119,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/br/com/estudo/api/cinema/estudo/service/VendaService.java</url>
           <line>50</line>
           <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/estudo/api/cinema/estudo/controller/CinemaController.java</url>
+          <line>74</line>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
