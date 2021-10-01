@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1962910d-29c5-488a-ac5e-7ed7692e76b0" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1yYnSY484ULuLK4iYCf2R6Ch3fM" />
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Alura\estudo\src\main\resources" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="br.com.estudo.api.cinema.estudo" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="br.com.estudo.api.cinema.estudo.service" />
+      <recent name="br.com.estudo.api.cinema.estudo.mapper" />
+      <recent name="br.com.estudo.api.cinema.estudo.repository" />
+      <recent name="br.com.estudo.api.cinema.estudo.entity" />
+      <recent name="br.com.estudo.api.cinema.estudo.model" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="EstudoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="estudo" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="br.com.estudo.api.cinema.estudo.EstudoApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1962910d-29c5-488a-ac5e-7ed7692e76b0" name="Default Changelist" comment="" />
+      <created>1632437389696</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1632437389696</updated>
+      <workItem from="1632437392538" duration="621000" />
+      <workItem from="1632479506757" duration="31000" />
+      <workItem from="1632479557446" duration="6202000" />
+      <workItem from="1632515061779" duration="1878000" />
+      <workItem from="1632740977679" duration="3278000" />
+      <workItem from="1632747420928" duration="3019000" />
+      <workItem from="1632750840907" duration="10118000" />
+      <workItem from="1632826862807" duration="5256000" />
+      <workItem from="1632916996893" duration="1261000" />
+      <workItem from="1633005833428" duration="8161000" />
+      <workItem from="1633036478903" duration="1236000" />
+      <workItem from="1633078223940" duration="4249000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+</project>

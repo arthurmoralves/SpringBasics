@@ -1,0 +1,11 @@
+INSERT INTO CLIENTE_ENTITY(nome, cpf, data_nasc) VALUES ('Arthur', '83817273', '02/03/1994');
+INSERT INTO CLIENTE_ENTITY(nome, cpf, data_nasc) VALUES ('Appio', '1882939193', '15/08/1950');
+
+INSERT INTO SESSAO_ENTITY(valor, titulo) VALUES (23.50, 'AMOR ESTRANHO AMOR');
+INSERT INTO SESSAO_ENTITY(valor, titulo) VALUES (39.99, 'SHREK 2');
+
+INSERT INTO VENDA_ENTITY(cliente_id, sessao_id) VALUES (1, 2);
+INSERT INTO VENDA_ENTITY(cliente_id, sessao_id) VALUES(2, 1);
+
+INSERT INTO SALA_ENTITY(sessao_id, venda_id) VALUES (1, 2)
+INSERT INTO SALA_ENTITY(sessao_id, venda_id) VALUES (2, 1)
