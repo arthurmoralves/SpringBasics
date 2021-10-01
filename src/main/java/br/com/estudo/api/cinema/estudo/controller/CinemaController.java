@@ -1,11 +1,6 @@
 package br.com.estudo.api.cinema.estudo.controller;
 
-import br.com.estudo.api.cinema.estudo.entity.ClienteEntity;
-import br.com.estudo.api.cinema.estudo.entity.SessaoEntity;
-import br.com.estudo.api.cinema.estudo.model.Cliente;
-import br.com.estudo.api.cinema.estudo.model.Sala;
-import br.com.estudo.api.cinema.estudo.model.Sessao;
-import br.com.estudo.api.cinema.estudo.model.Venda;
+import br.com.estudo.api.cinema.estudo.model.*;
 import br.com.estudo.api.cinema.estudo.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -70,14 +65,14 @@ public class CinemaController {
         return salaService.consultarSalas();
     }
 
-    @PostMapping
+    @PostMapping("/vendas")
     public ResponseEntity<Venda> cadastrarVenda(@RequestBody Venda venda){
         return ResponseEntity.ok(vendaService.cadastrarVenda(venda));
     }
 
     @PostMapping("/login")
-    public ResponseEntity login(@RequestBody String username, String password){
-        var login = loginService.validaLogin(username, password);
+    public ResponseEntity login(@RequestBody User user){
+        var login = loginService.validaLogin(user);
         if(login){
             return ResponseEntity.ok().build();
         } else {

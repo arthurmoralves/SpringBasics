@@ -32,6 +32,6 @@ public class SessaoService {
     }
 
     public Sessao consultarPorTitulo(String titulo) {
-        return sessaoRepository.findByTitulo(titulo);
+        return SessaoMapper.marshall(sessaoRepository.findByTitulo(titulo));
     }
 }

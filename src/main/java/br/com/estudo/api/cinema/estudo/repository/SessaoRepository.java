@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface SessaoRepository extends JpaRepository<SessaoEntity, Long> {
-    Sessao findByTitulo(String titulo);
+    SessaoEntity findByTitulo(String titulo);
 }

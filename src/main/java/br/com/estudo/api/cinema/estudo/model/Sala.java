@@ -11,15 +11,11 @@ import lombok.*;
 public class Sala {
 
     private Long id;
-    private Long idSessao;
-    private String titulo;
-    private Long idVenda;
+    private int capacidade;
 
     public Sala(SalaEntity salaEntity) {
         this.id = salaEntity.getId();
-        this.idSessao = salaEntity.getSessao().getId();
-        this.titulo = salaEntity.getSessao().getTitulo();
-        this.idVenda = salaEntity.getVenda().getId();
+        this.capacidade = salaEntity.getCapacidade();
     }
 }
 

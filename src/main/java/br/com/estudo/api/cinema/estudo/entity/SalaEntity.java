@@ -18,11 +18,7 @@ public class SalaEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
-    @ManyToOne
-    SessaoEntity sessao;
-
-    @OneToOne
-    VendaEntity venda;
+    private int capacidade;
 }

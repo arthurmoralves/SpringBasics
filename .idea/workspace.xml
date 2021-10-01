@@ -28,21 +28,22 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Alura\estudo\src\main\resources" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="br.com.estudo.api.cinema.estudo" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="br.com.estudo.api.cinema.estudo.model" />
       <recent name="br.com.estudo.api.cinema.estudo.service" />
       <recent name="br.com.estudo.api.cinema.estudo.mapper" />
       <recent name="br.com.estudo.api.cinema.estudo.repository" />
       <recent name="br.com.estudo.api.cinema.estudo.entity" />
-      <recent name="br.com.estudo.api.cinema.estudo.model" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Alura\estudo\src\main\resources" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -88,7 +89,7 @@
       <workItem from="1633005833428" duration="8161000" />
       <workItem from="1633036478903" duration="1236000" />
       <workItem from="1633078223940" duration="4249000" />
-      <workItem from="1633115410069" duration="17000" />
+      <workItem from="1633115410069" duration="6362000" />
     </task>
     <servers />
   </component>
@@ -105,5 +106,21 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/estudo/api/cinema/estudo/service/LoginService.java</url>
+          <line>9</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/estudo/api/cinema/estudo/service/VendaService.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

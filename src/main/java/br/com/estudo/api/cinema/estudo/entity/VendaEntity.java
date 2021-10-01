@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Optional;
 
 @Entity
 @Getter
@@ -18,15 +19,20 @@ public class VendaEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
     @ManyToOne
-    ClienteEntity cliente;
+    private ClienteEntity cliente;
 
     @OneToOne
-    SessaoEntity sessao;
+    private SessaoEntity sessao;
 
     @ManyToOne
-    SalaEntity sala;
+    private SalaEntity sala;
 
+    public VendaEntity(ClienteEntity cliente, SessaoEntity sessao, SalaEntity sala) {
+        this.cliente = cliente;
+        this.sessao = sessao;
+        this.sala = sala;
+    }
 }
