@@ -1,6 +1,6 @@
 package br.com.estudo.api.cinema.estudo.controller;
 
-import br.com.estudo.api.cinema.estudo.model.*;
+import br.com.estudo.api.cinema.estudo.dto.*;
 import br.com.estudo.api.cinema.estudo.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,13 +14,13 @@ import java.util.List;
 public class CinemaController {
 
     @Autowired
-    ClienteService clienteService;
+    private ClienteService clienteService;
 
     @Autowired
-    SessaoService sessaoService;
+    private SessaoService sessaoService;
 
     @Autowired
-    VendaService vendaService;
+    private VendaService vendaService;
 
     @Autowired
     private SalaService salaService;
@@ -28,24 +28,24 @@ public class CinemaController {
     @Autowired
     private LoginService loginService;
 
-    @PostMapping("/cliente")
-    public ResponseEntity<Cliente> cadastrarUsuario(@RequestBody Cliente cliente){
-       return ResponseEntity.ok(clienteService.cadastrar(cliente));
+    @PostMapping("/usuarios/cadastrar_cliente")
+    public ResponseEntity<ClienteDto> cadastrarUsuario(@RequestBody ClienteDto clienteDto){
+       return ResponseEntity.ok(clienteService.cadastrar(clienteDto));
     }
 
-    @PostMapping("/sessao")
-    public ResponseEntity<Sessao> cadastrarSessao(@RequestBody Sessao sessao){
-        return ResponseEntity.ok(sessaoService.cadastrar(sessao));
+    @PostMapping("/sessoes")
+    public ResponseEntity<SessaoDto> cadastrarSessao(@RequestBody SessaoDto sessaoDto){
+        return ResponseEntity.ok(sessaoService.cadastrar(sessaoDto));
     }
 
-    @GetMapping("/sessao")
-    public List<Sessao> consultarSessao(){
+    @GetMapping("/sessoes")
+    public List<SessaoDto> consultarSessao(){
         var sessao = sessaoService.consultar();
         return sessao;
     }
 
-    @GetMapping("/sessao/{titulo}")
-    public ResponseEntity<Sessao> consultarSessaoPorTitulo(@PathVariable String titulo){
+    @GetMapping("/sessoes/{titulo}")
+    public ResponseEntity<SessaoDto> consultarSessaoPorTitulo(@PathVariable String titulo){
         var sessao = sessaoService.consultarPorTitulo(titulo);
         if(sessao == null){
            return ResponseEntity.notFound().build();
@@ -55,24 +55,24 @@ public class CinemaController {
     }
 
     @GetMapping("/vendas")
-    public List<Venda> consultarVendas(){
+    public List<VendaDto> consultarVendas(){
         return vendaService.consultarVendas();
     }
 
 
     @GetMapping("/salas")
-    public List<Sala> consultarsalas(){
+    public List<SalaDto> consultarsalas(){
         return salaService.consultarSalas();
     }
 
     @PostMapping("/vendas")
-    public ResponseEntity<Venda> cadastrarVenda(@RequestBody Venda venda){
-        return ResponseEntity.ok(vendaService.cadastrarVenda(venda));
+    public ResponseEntity<VendaDto> cadastrarVenda(@RequestBody VendaDto vendaDto){
+        return ResponseEntity.ok(vendaService.cadastrarVenda(vendaDto));
     }
 
-    @PostMapping("/login")
-    public ResponseEntity login(@RequestBody User user){
-        var login = loginService.validaLogin(user);
+    @PostMapping("/users/login")
+    public ResponseEntity login(@RequestBody UserDto userDto){
+        var login = loginService.validaLogin(userDto);
         if(login){
             return ResponseEntity.ok().build();
         } else {

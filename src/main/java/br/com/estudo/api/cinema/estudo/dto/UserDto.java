@@ -1,4 +1,4 @@
-package br.com.estudo.api.cinema.estudo.model;
+package br.com.estudo.api.cinema.estudo.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @Builder
-public class User {
+public class UserDto {
 
     private String username;
     private String password;

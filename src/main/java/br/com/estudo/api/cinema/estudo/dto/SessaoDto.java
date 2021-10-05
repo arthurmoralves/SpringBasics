@@ -1,4 +1,4 @@
-package br.com.estudo.api.cinema.estudo.model;
+package br.com.estudo.api.cinema.estudo.dto;
 
 import br.com.estudo.api.cinema.estudo.entity.SessaoEntity;
 import lombok.*;
@@ -10,12 +10,12 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Sessao {
+public class SessaoDto {
 
     private BigDecimal valor;
     private String titulo;
 
-    public Sessao(SessaoEntity sessaoEntity) {
+    public SessaoDto(SessaoEntity sessaoEntity) {
         this.valor = sessaoEntity.getValor();
         this.titulo = sessaoEntity.getTitulo();
     }
