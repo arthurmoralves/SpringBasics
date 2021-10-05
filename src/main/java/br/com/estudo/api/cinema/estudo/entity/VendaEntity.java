@@ -1,14 +1,11 @@
 package br.com.estudo.api.cinema.estudo.entity;
 
-import br.com.estudo.api.cinema.estudo.model.Cliente;
-import br.com.estudo.api.cinema.estudo.model.Sessao;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Optional;
 
 @Entity
 @Getter

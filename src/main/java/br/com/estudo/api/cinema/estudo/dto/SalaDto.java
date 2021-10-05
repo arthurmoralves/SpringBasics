@@ -1,4 +1,4 @@
-package br.com.estudo.api.cinema.estudo.model;
+package br.com.estudo.api.cinema.estudo.dto;
 
 import br.com.estudo.api.cinema.estudo.entity.SalaEntity;
 import lombok.*;
@@ -8,12 +8,12 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Sala {
+public class SalaDto {
 
     private Long id;
     private int capacidade;
 
-    public Sala(SalaEntity salaEntity) {
+    public SalaDto(SalaEntity salaEntity) {
         this.id = salaEntity.getId();
         this.capacidade = salaEntity.getCapacidade();
     }

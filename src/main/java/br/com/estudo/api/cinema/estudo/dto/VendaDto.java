@@ -1,9 +1,6 @@
-package br.com.estudo.api.cinema.estudo.model;
+package br.com.estudo.api.cinema.estudo.dto;
 
-import br.com.estudo.api.cinema.estudo.entity.SalaEntity;
 import br.com.estudo.api.cinema.estudo.entity.VendaEntity;
-import br.com.estudo.api.cinema.estudo.mapper.ClienteMapper;
-import br.com.estudo.api.cinema.estudo.mapper.SessaoMapper;
 import lombok.*;
 
 @Builder
@@ -11,13 +8,13 @@ import lombok.*;
 @Getter
 @Setter
 @AllArgsConstructor
-public class Venda {
+public class VendaDto {
 
     private String titulo;
     private String cliente;
     private Long sala;
 
-    public Venda(VendaEntity vendaEntity) {
+    public VendaDto(VendaEntity vendaEntity) {
         this.titulo = vendaEntity.getSessao().getTitulo();
         this.cliente = vendaEntity.getCliente().getNome();
         this.sala = vendaEntity.getSala().getId();

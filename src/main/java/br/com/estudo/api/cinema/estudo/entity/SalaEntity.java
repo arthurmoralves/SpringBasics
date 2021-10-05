@@ -1,7 +1,5 @@
 package br.com.estudo.api.cinema.estudo.entity;
 
-import br.com.estudo.api.cinema.estudo.model.Sessao;
-import br.com.estudo.api.cinema.estudo.model.Venda;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

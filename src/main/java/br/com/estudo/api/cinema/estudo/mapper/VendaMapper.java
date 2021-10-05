@@ -1,21 +1,21 @@
 package br.com.estudo.api.cinema.estudo.mapper;
 
 import br.com.estudo.api.cinema.estudo.entity.VendaEntity;
-import br.com.estudo.api.cinema.estudo.model.Venda;
+import br.com.estudo.api.cinema.estudo.dto.VendaDto;
 import org.modelmapper.ModelMapper;
-import org.springframework.ui.ModelMap;
+import org.springframework.stereotype.Service;
 
+@Service
 public class VendaMapper {
 
+    public ModelMapper modelMapper = new ModelMapper();
 
-    public static ModelMapper modelMapper = new ModelMapper();
-
-    public static Venda marshall(VendaEntity vendaEntity){
-       return modelMapper.map(vendaEntity, Venda.class);
+    public VendaDto marshall(VendaEntity vendaEntity){
+       return modelMapper.map(vendaEntity, VendaDto.class);
     }
 
-    public static VendaEntity unmarshall(Venda venda){
-        return modelMapper.map(venda, VendaEntity.class);
+    public VendaEntity unmarshall(VendaDto vendaDto){
+        return modelMapper.map(vendaDto, VendaEntity.class);
     }
 
 }

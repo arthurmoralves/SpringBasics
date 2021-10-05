@@ -1,4 +1,4 @@
-package br.com.estudo.api.cinema.estudo.model;
+package br.com.estudo.api.cinema.estudo.dto;
 
 import lombok.*;
 
@@ -7,7 +7,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Cliente {
+public class ClienteDto {
 
     private String CPF;
     private String nome;
