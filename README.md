@@ -7,7 +7,7 @@ Funcionalidades: \
 • Consulta de Sessões\
 • Consulta de Sessão por título do filme\
 • Histórico de Vendas\
-• Consulta de Salas\
+• Consulta de Salas
 
 Tecnologias Utilizadas: \
 • Java 11\
