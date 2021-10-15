@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com.estudo.api.cinema</groupId>
-	<artifactId>estudo</artifactId>
+	<artifactId>spring-basics</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>estudo</name>
-	<description>Demo project for Spring Boot</description>
+	<name>spring-basics</name>
+	<description>Aplicação para execução prática de conceitos aprendidos em estudos</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
