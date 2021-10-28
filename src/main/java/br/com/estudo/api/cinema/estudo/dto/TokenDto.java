@@ -1,16 +1,15 @@
 package br.com.estudo.api.cinema.estudo.dto;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
 @AllArgsConstructor
-@Builder
-public class UserDto {
+public class TokenDto {
 
-    private String username;
-    private String password;
+
+    private String token;
+    private String bearer;
 }

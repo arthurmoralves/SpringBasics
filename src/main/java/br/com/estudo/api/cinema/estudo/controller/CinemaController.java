@@ -71,8 +71,8 @@ public class CinemaController {
     }
 
     @PostMapping("/users/login")
-    public ResponseEntity login(@RequestBody UserDto userDto){
-        var login = loginService.validaLogin(userDto);
+    public ResponseEntity login(@RequestBody UsuarioDto usuarioDto){
+        var login = loginService.validaLogin(usuarioDto);
         if(login){
             return ResponseEntity.ok().build();
         } else {
