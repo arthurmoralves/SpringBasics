@@ -7,7 +7,8 @@ Funcionalidades: \
 • Consulta de Sessões\
 • Consulta de Sessão por título do filme\
 • Histórico de Vendas\
-• Consulta de Salas
+• Consulta de Salas\
+• Autenticação de Usuário
 
 Tecnologias Utilizadas: \
 • Java 11\
@@ -16,4 +17,6 @@ Tecnologias Utilizadas: \
 • REST\
 • Spring Boot\
 • Maven\
-• Arquitetura MVC
+• Arquitetura MVC\
+• Spring Security\
+• Token JWT
