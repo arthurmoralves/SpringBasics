@@ -25,9 +25,6 @@ public class CinemaController {
     @Autowired
     private SalaService salaService;
 
-    @Autowired
-    private LoginService loginService;
-
     @PostMapping("/usuarios/cadastrar_cliente")
     public ResponseEntity<ClienteDto> cadastrarUsuario(@RequestBody ClienteDto clienteDto){
        return ResponseEntity.ok(clienteService.cadastrar(clienteDto));
@@ -68,15 +65,5 @@ public class CinemaController {
     @PostMapping("/vendas")
     public ResponseEntity<VendaDto> cadastrarVenda(@RequestBody VendaDto vendaDto){
         return ResponseEntity.ok(vendaService.cadastrarVenda(vendaDto));
-    }
-
-    @PostMapping("/users/login")
-    public ResponseEntity login(@RequestBody UsuarioDto usuarioDto){
-        var login = loginService.validaLogin(usuarioDto);
-        if(login){
-            return ResponseEntity.ok().build();
-        } else {
-            return new ResponseEntity<String>("Unauthorized", HttpStatus.UNAUTHORIZED);
-        }
     }
 }

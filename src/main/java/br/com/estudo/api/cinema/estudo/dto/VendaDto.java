@@ -8,6 +8,7 @@ import lombok.*;
 @Getter
 @Setter
 @AllArgsConstructor
+@EqualsAndHashCode
 public class VendaDto {
 
     private String titulo;
