@@ -1,7 +1,10 @@
 package br.com.estudo.api.cinema.estudo.dto;
 
+import br.com.estudo.api.cinema.estudo.entity.SessaoEntity;
 import br.com.estudo.api.cinema.estudo.entity.VendaEntity;
 import lombok.*;
+
+import java.util.List;
 
 @Builder
 @NoArgsConstructor
@@ -11,13 +14,11 @@ import lombok.*;
 @EqualsAndHashCode
 public class VendaDto {
 
-    private String titulo;
     private String cliente;
-    private Long sala;
+    private List<SessaoEntity> sessao;
 
     public VendaDto(VendaEntity vendaEntity) {
-        this.titulo = vendaEntity.getSessao().getTitulo();
-        this.cliente = vendaEntity.getCliente().getNome();
-        this.sala = vendaEntity.getSala().getId();
+        this.cliente = vendaEntity.getCliente().getCPF();
+        this.sessao = vendaEntity.getSessao();
     }
 }

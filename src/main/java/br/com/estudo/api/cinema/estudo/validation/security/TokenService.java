@@ -22,9 +22,9 @@ public class TokenService {
     private UsuarioRepository usuarioRepository;
 
     public String gerarToken(Authentication authentication){
-        UsuarioEntity logado = (UsuarioEntity) authentication.getPrincipal();
-        Date hoje = new Date();
-        Date expirationDate = new Date(hoje.getTime()+ Long.parseLong(expiration));
+        var logado = (UsuarioEntity) authentication.getPrincipal();
+        var hoje = new Date();
+        var expirationDate = new Date(hoje.getTime()+ Long.parseLong(expiration));
 
         return Jwts.builder()
                 .setIssuer("API GERENCIAMENTO DE CINEMA")

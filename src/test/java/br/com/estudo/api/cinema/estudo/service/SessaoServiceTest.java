@@ -35,7 +35,7 @@ public class SessaoServiceTest {
     CinemaFactoryTest cinemaFactoryTest = new CinemaFactoryTest();
 
     @Test
-    public void DeveTestarCadastroComSucesso(){
+    public void deveTestarCadastroComSucesso(){
         var sessaoDto = cinemaFactoryTest.mockSessaoDto();
         var sessaoEntity = cinemaFactoryTest.mockSessaoEntity();
 
@@ -47,7 +47,7 @@ public class SessaoServiceTest {
     }
 
     @Test
-    public void DeveTestarConsultarSessao(){
+    public void deveTestarConsultarSessao(){
         var sessaoDto = cinemaFactoryTest.mockSessaoDto();
         var sessaoEntity = cinemaFactoryTest.mockSessaoEntity();
 
@@ -65,7 +65,7 @@ public class SessaoServiceTest {
     }
 
     @Test
-    public void DeveTestarConsultarPorTitulo(){
+    public void deveTestarConsultarPorTitulo(){
         var sessaoDto = cinemaFactoryTest.mockSessaoDto();
         sessaoDto.setTitulo("A BRANCA DE NEVE");
         var sessaoEntity = cinemaFactoryTest.mockSessaoEntity();

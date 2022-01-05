@@ -8,9 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ClienteMapper {
 
-    private ClienteMapper(){ super(); }
-
-    ModelMapper modelMapper = new ModelMapper();
+    private final ModelMapper modelMapper = new ModelMapper();
 
     public ClienteDto marshall(ClienteEntity clienteEntity){
         return modelMapper.map(clienteEntity, ClienteDto.class);

@@ -12,10 +12,12 @@ import lombok.*;
 public class SalaDto {
 
     private Long id;
+    private int numero;
     private int capacidade;
 
     public SalaDto(SalaEntity salaEntity) {
         this.id = salaEntity.getId();
+        this.numero = salaEntity.getNumero();
         this.capacidade = salaEntity.getCapacidade();
     }
 }

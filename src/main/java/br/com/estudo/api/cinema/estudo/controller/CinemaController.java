@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/cinema")
+@RequestMapping("/cinemas")
 public class CinemaController {
 
     @Autowired
@@ -62,8 +62,8 @@ public class CinemaController {
         return salaService.consultarSalas();
     }
 
-    @PostMapping("/vendas")
-    public ResponseEntity<VendaDto> cadastrarVenda(@RequestBody VendaDto vendaDto){
-        return ResponseEntity.ok(vendaService.cadastrarVenda(vendaDto));
-    }
+//    @PostMapping("/vendas")
+//    public ResponseEntity<VendaDto> cadastrarVenda(@RequestBody VendaDto vendaDto){
+//        return ResponseEntity.ok(vendaService.cadastrarVenda(vendaDto));
+//    }
 }

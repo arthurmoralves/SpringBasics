@@ -4,7 +4,7 @@ import br.com.estudo.api.cinema.estudo.dto.*;
 import br.com.estudo.api.cinema.estudo.entity.ClienteEntity;
 import br.com.estudo.api.cinema.estudo.entity.SalaEntity;
 import br.com.estudo.api.cinema.estudo.entity.SessaoEntity;
-import br.com.estudo.api.cinema.estudo.entity.VendaEntity;
+//import br.com.estudo.api.cinema.estudo.entity.;
 import br.com.estudo.api.cinema.estudo.mapper.ClienteMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -72,26 +72,26 @@ public class CinemaFactoryTest {
                 .build();
     }
 
-    public VendaEntity mockVendaEntity(){
-
-        return VendaEntity.builder()
-                .cliente(mockClienteEntity())
-                .id(1L)
-                .sala(mockSalaEntity())
-                .sessao(mockSessaoEntity())
-                .build();
-    }
-
-    public VendaDto mockVendaDto(){
-
-        var clienteDto = mockClienteDto();
-        var salaDto = mockSalaDto();
-        var sessaoDto = mockSessaoDto();
-
-        return VendaDto.builder()
-                .cliente(clienteDto.getNome())
-                .sala(salaDto.getId())
-                .titulo(sessaoDto.getTitulo())
-                .build();
-    }
+//    public VendaEntity mockVendaEntity(){
+//
+//        return VendaEntity.builder()
+//                .cliente(mockClienteEntity())
+//                .id(1L)
+//                .sala(mockSalaEntity())
+//                .sessao(mockSessaoEntity())
+//                .build();
+//    }
+//
+//    public VendaDto mockVendaDto(){
+//
+//        var clienteDto = mockClienteDto();
+//        var salaDto = mockSalaDto();
+//        var sessaoDto = mockSessaoDto();
+//
+//        return VendaDto.builder()
+//                .cliente(clienteDto.getNome())
+//                .sala(salaDto.getId())
+//                .titulo(sessaoDto.getTitulo())
+//                .build();
+//    }
 }

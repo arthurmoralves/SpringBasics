@@ -16,5 +16,8 @@ public class SalaEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true)
+    private int numero;
+
     private int capacidade;
 }
