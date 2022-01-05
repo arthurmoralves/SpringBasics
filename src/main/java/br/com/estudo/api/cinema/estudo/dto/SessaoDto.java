@@ -14,6 +14,7 @@ import java.math.BigDecimal;
 @EqualsAndHashCode
 public class SessaoDto {
 
+    private Long id;
     private BigDecimal valor;
     private String titulo;
     private SalaEntity sala;

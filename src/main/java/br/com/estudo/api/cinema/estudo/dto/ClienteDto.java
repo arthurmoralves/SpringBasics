@@ -10,6 +10,7 @@ import lombok.*;
 @EqualsAndHashCode
 public class ClienteDto {
 
+    private Long id;
     private String CPF;
     private String nome;
     private String dataNasc;

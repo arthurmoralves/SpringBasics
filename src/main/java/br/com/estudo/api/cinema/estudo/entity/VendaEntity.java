@@ -23,14 +23,14 @@ public class VendaEntity {
 
     @ManyToMany(cascade = { CascadeType.ALL })
     @JoinTable(
-            name = "Venda_Sessao",
+            name = "VENDA_SESSAO",
             joinColumns = { @JoinColumn(name = "venda_id") },
             inverseJoinColumns = { @JoinColumn(name = "sessao_id") }
     )
-    private List<SessaoEntity> sessao;
+    private List<SessaoEntity> sessoes;
 
     public VendaEntity(ClienteEntity cliente, List<SessaoEntity> sessao) {
         this.cliente = cliente;
-        this.sessao = sessao;
+        this.sessoes = sessao;
     }
 }

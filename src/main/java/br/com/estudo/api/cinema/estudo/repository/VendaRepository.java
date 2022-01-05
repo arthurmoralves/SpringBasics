@@ -8,5 +8,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface VendaRepository extends JpaRepository<VendaEntity, Long> {
 
-//    int countBySessaoId();
+    @Query(value = "SELECT COUNT(SESSAO.SESSAO_ID) " +
+            "FROM VENDA_ENTITY VENDA INNER JOIN VENDA_SESSAO SESSAO ON VENDA.ID = SESSAO.VENDA_ID" +
+            " WHERE SESSAO_ID = id", nativeQuery = true)
+    int countBySessaoId(Long id);
 }
