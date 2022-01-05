@@ -25,7 +25,7 @@ public class SessaoService {
     }
 
     public List<SessaoDto> consultar() {
-        List<SessaoEntity> listaSessao = sessaoRepository.findAll();
+        var listaSessao = sessaoRepository.findAll();
         return converter(listaSessao);
 
     }

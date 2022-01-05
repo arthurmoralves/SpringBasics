@@ -3,6 +3,7 @@ package br.com.estudo.api.cinema.estudo.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -20,15 +21,16 @@ public class VendaEntity {
     @ManyToOne
     private ClienteEntity cliente;
 
-    @OneToOne
-    private SessaoEntity sessao;
+    @ManyToMany(cascade = { CascadeType.ALL })
+    @JoinTable(
+            name = "Venda_Sessao",
+            joinColumns = { @JoinColumn(name = "venda_id") },
+            inverseJoinColumns = { @JoinColumn(name = "sessao_id") }
+    )
+    private List<SessaoEntity> sessao;
 
-    @ManyToOne
-    private SalaEntity sala;
-
-    public VendaEntity(ClienteEntity cliente, SessaoEntity sessao, SalaEntity sala) {
+    public VendaEntity(ClienteEntity cliente, List<SessaoEntity> sessao) {
         this.cliente = cliente;
         this.sessao = sessao;
-        this.sala = sala;
     }
 }

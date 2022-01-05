@@ -28,8 +28,8 @@ public class AuthenticationController {
     public ResponseEntity<TokenDto> autenticar(@RequestBody UsuarioDto usuarioDto){
         UsernamePasswordAuthenticationToken dadosLogin = usuarioDto.converter();
         try{
-            Authentication auth = authManager.authenticate(dadosLogin);
-            String token = tokenService.gerarToken(auth);
+            var auth = authManager.authenticate(dadosLogin);
+            var token = tokenService.gerarToken(auth);
             return ResponseEntity.ok(new TokenDto(token, "Bearer"));
         } catch (AuthenticationException e){
             return ResponseEntity.badRequest().build();

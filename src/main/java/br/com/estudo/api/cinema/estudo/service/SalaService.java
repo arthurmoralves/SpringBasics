@@ -16,7 +16,7 @@ public class SalaService {
     private SalaRepository salaRepository;
 
     public List<SalaDto> consultarSalas(){
-        List<SalaEntity> salas = salaRepository.findAll();
+        var salas = salaRepository.findAll();
         return converter(salas);
     }
 
