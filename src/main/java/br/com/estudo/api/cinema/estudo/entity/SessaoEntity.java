@@ -22,7 +22,7 @@ public class SessaoEntity {
     private BigDecimal valor;
     private String titulo;
 
-    @OneToOne
+    @ManyToOne
     SalaEntity sala;
 
 }

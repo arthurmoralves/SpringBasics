@@ -56,14 +56,13 @@ public class CinemaController {
         return vendaService.consultarVendas();
     }
 
-
     @GetMapping("/salas")
     public List<SalaDto> consultarsalas(){
         return salaService.consultarSalas();
     }
 
-//    @PostMapping("/vendas")
-//    public ResponseEntity<VendaDto> cadastrarVenda(@RequestBody VendaDto vendaDto){
-//        return ResponseEntity.ok(vendaService.cadastrarVenda(vendaDto));
-//    }
+    @PostMapping("/vendas")
+    public ResponseEntity<VendaDto> cadastrarVenda(@RequestBody VendaDto vendaDto){
+        return ResponseEntity.ok(vendaService.cadastrarVenda(vendaDto));
+    }
 }

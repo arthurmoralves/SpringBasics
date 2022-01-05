@@ -4,7 +4,7 @@ import br.com.estudo.api.cinema.estudo.dto.*;
 import br.com.estudo.api.cinema.estudo.entity.ClienteEntity;
 import br.com.estudo.api.cinema.estudo.entity.SalaEntity;
 import br.com.estudo.api.cinema.estudo.entity.SessaoEntity;
-//import br.com.estudo.api.cinema.estudo.entity.;
+import br.com.estudo.api.cinema.estudo.entity.VendaEntity;
 import br.com.estudo.api.cinema.estudo.mapper.ClienteMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
