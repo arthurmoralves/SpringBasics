@@ -8,6 +8,10 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static org.mockito.Mockito.when;
@@ -31,6 +35,7 @@ public class SalaServiceTest {
     public void deveTestarConsultaDeSalas(){
         List<SalaEntity> salas = new ArrayList<>();
         List<SalaDto> salasDto = new ArrayList<>();
+        Pageable page = PageRequest.of(1, 1);
 
         var sala1 = cinemaFactoryTest.mockSalaEntity();
         var sala2 = cinemaFactoryTest.mockSalaEntity();
@@ -42,11 +47,14 @@ public class SalaServiceTest {
         salasDto.add(salaDto1);
         salasDto.add(salaDto2);
 
-        when(salaRepository.findAll()).thenReturn(salas);
+        var salasEntityPage = new PageImpl<>(salas);
+        var salasDtoPage = new PageImpl<>(salasDto);
 
-        List<SalaDto> salaReturn = salaService.consultarSalas();
+        when(salaRepository.findAll(page)).thenReturn(salasEntityPage);
 
-        assertEquals(salasDto, salaReturn);
+        Page<SalaDto> salaReturn = salaService.consultarSalas(page);
+
+        assertEquals(salasDtoPage, salaReturn);
     }
 
     //TODO - Entender qual exception precisa ser testada
