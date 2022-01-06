@@ -11,6 +11,10 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Spy;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.ArrayList;
@@ -50,6 +54,7 @@ public class SessaoServiceTest {
     public void deveTestarConsultarSessao(){
         var sessaoDto = cinemaFactoryTest.mockSessaoDto();
         var sessaoEntity = cinemaFactoryTest.mockSessaoEntity();
+        Pageable page = PageRequest.of(1, 1);
 
         List<SessaoEntity> sessoesEntity = new ArrayList<>();
         sessoesEntity.add(sessaoEntity);
@@ -57,11 +62,14 @@ public class SessaoServiceTest {
         List<SessaoDto> sessoesDto = new ArrayList<>();
         sessoesDto.add(sessaoDto);
 
-        when(sessaoRepository.findAll()).thenReturn(sessoesEntity);
+        Page<SessaoEntity> sessoesEntityPage = new PageImpl<>(sessoesEntity);
+        Page<SessaoDto> sessoesDtoPage = new PageImpl<>(sessoesDto);
 
-        var sessaoReturn = sessaoService.consultar();
+        when(sessaoRepository.findAll(page)).thenReturn(sessoesEntityPage);
 
-        assertEquals(sessaoReturn, sessoesDto);
+        var sessaoReturn = sessaoService.consultar(page);
+
+        assertEquals(sessaoReturn, sessoesDtoPage);
     }
 
     @Test

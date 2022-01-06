@@ -14,6 +14,8 @@ import br.com.estudo.api.cinema.estudo.repository.SessaoRepository;
 import br.com.estudo.api.cinema.estudo.repository.VendaRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.security.InvalidParameterException;
@@ -37,13 +39,13 @@ public class VendaService {
     @Autowired
     private VendaMapper vendaMapper;
 
-    public List<VendaDto> consultarVendas(){
-        var listaVendas = vendaRepository.findAll();
+    public Page<VendaDto> consultarVendas(Pageable page){
+        var listaVendas = vendaRepository.findAll(page);
         return converter(listaVendas);
     }
 
-    private List<VendaDto> converter(List<VendaEntity> vendasEntity){
-        return vendasEntity.stream().map(vendaEntity -> vendaMapper.marshall(vendaEntity)).collect(Collectors.toList());
+    private Page<VendaDto> converter(Page<VendaEntity> vendasEntity){
+        return vendasEntity.map(vendaEntity -> vendaMapper.marshall(vendaEntity));
     }
 
     public VendaDto cadastrarVenda(VendaDto vendaDto) {
@@ -51,7 +53,6 @@ public class VendaService {
         try{
 
             var listIdSessoes = vendaDto.getSessoes().stream().map(SessaoDto::getId).collect(Collectors.toList());
-
             List<SessaoEntity> listSessaoEntity = new ArrayList<>();
 
             for (SessaoDto sessao:vendaDto.getSessoes()) {
@@ -61,9 +62,7 @@ public class VendaService {
             }
 
             var cliente = clienteRepository.findByCPF(vendaDto.getCliente().getCPF());
-
             var vendaEntity = new VendaEntity(cliente, listSessaoEntity);
-
             var vendaReturn = vendaRepository.save(vendaEntity);
 
             return vendaMapper.marshall(vendaReturn);

@@ -5,6 +5,8 @@ import br.com.estudo.api.cinema.estudo.mapper.SessaoMapper;
 import br.com.estudo.api.cinema.estudo.dto.SessaoDto;
 import br.com.estudo.api.cinema.estudo.repository.SessaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,14 +26,13 @@ public class SessaoService {
         return sessaoMapper.marshall(sessaoRepository.save(sessaoEntity));
     }
 
-    public List<SessaoDto> consultar() {
-        var listaSessao = sessaoRepository.findAll();
+    public Page<SessaoDto> consultar(Pageable page) {
+        var listaSessao = sessaoRepository.findAll(page);
         return converter(listaSessao);
-
     }
 
-    private List<SessaoDto> converter(List<SessaoEntity> sessoesEntity){
-        return sessoesEntity.stream().map(SessaoDto::new).collect(Collectors.toList());
+    private Page<SessaoDto> converter(Page<SessaoEntity> sessoesEntity){
+       return sessoesEntity.map(SessaoDto::new);
     }
 
     public SessaoDto consultarPorTitulo(String titulo) {
