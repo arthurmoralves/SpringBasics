@@ -3,6 +3,9 @@ package br.com.estudo.api.cinema.estudo.controller;
 import br.com.estudo.api.cinema.estudo.dto.*;
 import br.com.estudo.api.cinema.estudo.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -36,8 +39,10 @@ public class CinemaController {
     }
 
     @GetMapping("/sessoes")
-    public List<SessaoDto> consultarSessao(){
-        var sessao = sessaoService.consultar();
+    public Page<SessaoDto> consultarSessao(@RequestParam int pagina, int qtd){
+
+        Pageable page = PageRequest.of(pagina, qtd);
+        var sessao = sessaoService.consultar(page);
         return sessao;
     }
 
@@ -52,13 +57,15 @@ public class CinemaController {
     }
 
     @GetMapping("/vendas")
-    public List<VendaDto> consultarVendas(){
-        return vendaService.consultarVendas();
+    public Page<VendaDto> consultarVendas(@RequestParam int pagina, int qtd){
+        Pageable page = PageRequest.of(pagina, qtd);
+        return vendaService.consultarVendas(page);
     }
 
     @GetMapping("/salas")
-    public List<SalaDto> consultarsalas(){
-        return salaService.consultarSalas();
+    public Page<SalaDto> consultarsalas(@RequestParam int pagina, int qtd){
+        Pageable page = PageRequest.of(pagina, qtd);
+        return salaService.consultarSalas(page);
     }
 
     @PostMapping("/vendas")
