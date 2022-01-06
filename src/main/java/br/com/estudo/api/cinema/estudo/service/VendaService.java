@@ -52,7 +52,6 @@ public class VendaService {
 
         try{
 
-            var listIdSessoes = vendaDto.getSessoes().stream().map(SessaoDto::getId).collect(Collectors.toList());
             List<SessaoEntity> listSessaoEntity = new ArrayList<>();
 
             for (SessaoDto sessao:vendaDto.getSessoes()) {
