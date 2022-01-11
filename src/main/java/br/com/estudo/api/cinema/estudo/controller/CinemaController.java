@@ -1,6 +1,7 @@
 package br.com.estudo.api.cinema.estudo.controller;
 
 import br.com.estudo.api.cinema.estudo.dto.*;
+import br.com.estudo.api.cinema.estudo.mapper.SessaoMapper;
 import br.com.estudo.api.cinema.estudo.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -9,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -28,6 +30,9 @@ public class CinemaController {
     @Autowired
     private SalaService salaService;
 
+    @Autowired
+    private SessaoMapper sessaoMapper;
+
     @PostMapping("/usuarios/cadastrar_cliente")
     public ResponseEntity<ClienteDto> cadastrarUsuario(@RequestBody ClienteDto clienteDto){
        return ResponseEntity.ok(clienteService.cadastrar(clienteDto));
@@ -46,13 +51,23 @@ public class CinemaController {
         return sessao;
     }
 
-    @GetMapping("/sessoes/{titulo}")
-    public ResponseEntity<SessaoDto> consultarSessaoPorTitulo(@PathVariable String titulo){
+    @GetMapping("/sessoes/titulo")
+    public ResponseEntity<SessaoDto> consultarSessaoPorTitulo(@RequestParam String titulo) {
         var sessao = sessaoService.consultarPorTitulo(titulo);
-        if(sessao == null){
-           return ResponseEntity.notFound().build();
+        if(sessao.isPresent()){
+            return ResponseEntity.ok(sessaoMapper.marshall(sessao.get()));
         } else {
-            return ResponseEntity.ok(sessao);
+            throw new ResponseStatusException(HttpStatus.NO_CONTENT, "Sessão não encontrada");
+        }
+    }
+
+    @GetMapping("/sessoes/{id}")
+    public ResponseEntity<SessaoDto> consultaSessaoPorId(@PathVariable Long id){
+        var sessao = sessaoService.consultarPorId(id);
+        if(sessao.isPresent()){
+            return ResponseEntity.ok(sessaoMapper.marshall(sessao.get()));
+        } else {
+            throw new ResponseStatusException(HttpStatus.NO_CONTENT, "Sessão não encontrada");
         }
     }
 
