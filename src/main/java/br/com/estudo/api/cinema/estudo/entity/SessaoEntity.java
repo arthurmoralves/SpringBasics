@@ -23,6 +23,6 @@ public class SessaoEntity {
     private String titulo;
 
     @ManyToOne
-    SalaEntity sala;
+    private SalaEntity sala;
 
 }

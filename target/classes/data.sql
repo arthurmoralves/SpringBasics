@@ -1,5 +1,5 @@
-INSERT INTO CLIENTE_ENTITY(nome, cpf, data_nasc) VALUES ('Arthur', '83817273', '02/03/1994');
-INSERT INTO CLIENTE_ENTITY(nome, cpf, data_nasc) VALUES ('Appio', '1882939193', '15/08/1950');
+INSERT INTO CLIENTE_ENTITY(nome, cpf, data_nasc) VALUES ('Arthur', '83817273', TO_DATE('02-03-1994','dd-MM-yyyy'));
+INSERT INTO CLIENTE_ENTITY(nome, cpf, data_nasc) VALUES ('Appio', '1882939193', TO_DATE('15-08-1950','dd-MM-yyyy'));
 
 INSERT INTO SALA_ENTITY(numero, capacidade) VALUES (1, 150);
 INSERT INTO SALA_ENTITY(numero, capacidade) VALUES (2, 100);

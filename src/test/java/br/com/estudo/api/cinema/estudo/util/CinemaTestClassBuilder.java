@@ -10,8 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
-public class CinemaFactoryTest {
+public class CinemaTestClassBuilder {
 
     @Autowired
     ClienteMapper clienteMapper;
@@ -29,17 +31,22 @@ public class CinemaFactoryTest {
     }
 
     public ClienteDto mockClienteDto(){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
         return ClienteDto.builder()
                 .CPF("72766120661")
-                .dataNasc("08/10/1997")
+                .dataNasc(LocalDate.parse("15/03/1990", formatter))
                 .nome("Jurandir Filho")
                 .build();
     }
 
     public ClienteEntity mockClienteEntity() {
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
         return ClienteEntity.builder()
                 .CPF("72766120661")
-                .dataNasc("08/10/1997")
+                .dataNasc(LocalDate.parse("15/03/1990", formatter))
                 .nome("Jurandir Filho")
                 .build();
     }

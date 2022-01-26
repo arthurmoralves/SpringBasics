@@ -1,15 +1,17 @@
 package br.com.estudo.api.cinema.estudo.service;
 
-import br.com.estudo.api.cinema.estudo.entity.ClienteEntity;
 import br.com.estudo.api.cinema.estudo.mapper.ClienteMapper;
 import br.com.estudo.api.cinema.estudo.repository.ClienteRepository;
-import br.com.estudo.api.cinema.estudo.util.CinemaFactoryTest;
+import br.com.estudo.api.cinema.estudo.util.CinemaTestClassBuilder;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Spy;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+import static org.mockito.Mockito.verify;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
@@ -19,25 +21,31 @@ import static org.mockito.Mockito.when;
 public class ClienteServiceTest {
 
     @InjectMocks
-    ClienteService clienteService;
+    private ClienteService clienteService;
 
     @Spy
-    ClienteMapper clienteMapper;
+    private ClienteMapper clienteMapper;
 
     @Mock
-    ClienteRepository clienteRepository;
+    private ClienteRepository clienteRepository;
 
-    CinemaFactoryTest cinemaFactoryTest = new CinemaFactoryTest();
+    private CinemaTestClassBuilder cinemaTestClassBuilder = new CinemaTestClassBuilder();
 
     @Test
-    public void testeCadastroDeveRetornarUsuarioCadastradoComSucesso(){
-        var cliente = cinemaFactoryTest.mockClienteDto();
-        var clienteEntity = cinemaFactoryTest.mockClienteEntity();
+    public void testeCadastroDeveRetornarUsuarioCadastradoComSucesso() {
+        var cliente = cinemaTestClassBuilder.mockClienteDto();
+        var clienteEntity = cinemaTestClassBuilder.mockClienteEntity();
 
-        when(clienteRepository.save(any(ClienteEntity.class))).thenReturn(clienteEntity);
+        when(clienteMapper.unmarshall(cliente)).thenReturn(clienteEntity);
+        when(clienteRepository.save(clienteEntity)).thenReturn(clienteEntity);
+        when(clienteMapper.marshall(clienteEntity)).thenReturn(cliente);
 
         var clienteReturn = clienteService.cadastrar(cliente);
 
-        assertEquals(clienteReturn, cliente);
+        verify(clienteMapper).unmarshall(cliente);
+        verify(clienteRepository).save(clienteEntity);
+        verify(clienteMapper).marshall(clienteEntity);
+
+        Assertions.assertThat(clienteReturn).isEqualTo(cliente);
     }
 }

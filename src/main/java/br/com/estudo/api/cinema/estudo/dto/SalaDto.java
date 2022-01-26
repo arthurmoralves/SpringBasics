@@ -12,8 +12,8 @@ import lombok.*;
 public class SalaDto {
 
     private Long id;
-    private int numero;
-    private int capacidade;
+    private Integer numero;
+    private Integer capacidade;
 
     public SalaDto(SalaEntity salaEntity) {
         this.id = salaEntity.getId();

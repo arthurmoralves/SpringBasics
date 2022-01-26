@@ -19,7 +19,7 @@ public class PerfilEntity implements GrantedAuthority {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    String nome;
+    private String nome;
 
     @Override
     public String getAuthority() {

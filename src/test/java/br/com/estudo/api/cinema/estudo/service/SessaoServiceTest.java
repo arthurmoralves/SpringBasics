@@ -4,8 +4,7 @@ import br.com.estudo.api.cinema.estudo.dto.SessaoDto;
 import br.com.estudo.api.cinema.estudo.entity.SessaoEntity;
 import br.com.estudo.api.cinema.estudo.mapper.SessaoMapper;
 import br.com.estudo.api.cinema.estudo.repository.SessaoRepository;
-import br.com.estudo.api.cinema.estudo.util.CinemaFactoryTest;
-import org.junit.jupiter.api.BeforeEach;
+import br.com.estudo.api.cinema.estudo.util.CinemaTestClassBuilder;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -20,7 +19,6 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -36,12 +34,12 @@ public class SessaoServiceTest {
     @Mock
     SessaoRepository sessaoRepository;
 
-    CinemaFactoryTest cinemaFactoryTest = new CinemaFactoryTest();
+    CinemaTestClassBuilder cinemaTestClassBuilder = new CinemaTestClassBuilder();
 
     @Test
     public void deveTestarCadastroComSucesso(){
-        var sessaoDto = cinemaFactoryTest.mockSessaoDto();
-        var sessaoEntity = cinemaFactoryTest.mockSessaoEntity();
+        var sessaoDto = cinemaTestClassBuilder.mockSessaoDto();
+        var sessaoEntity = cinemaTestClassBuilder.mockSessaoEntity();
 
         when(sessaoRepository.save(sessaoEntity)).thenReturn(sessaoEntity);
 
@@ -52,8 +50,8 @@ public class SessaoServiceTest {
 
     @Test
     public void deveTestarConsultarSessao(){
-        var sessaoDto = cinemaFactoryTest.mockSessaoDto();
-        var sessaoEntity = cinemaFactoryTest.mockSessaoEntity();
+        var sessaoDto = cinemaTestClassBuilder.mockSessaoDto();
+        var sessaoEntity = cinemaTestClassBuilder.mockSessaoEntity();
         Pageable page = PageRequest.of(1, 1);
 
         List<SessaoEntity> sessoesEntity = new ArrayList<>();

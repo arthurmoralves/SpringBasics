@@ -17,7 +17,7 @@ public class SalaEntity {
     private Long id;
 
     @Column(unique = true)
-    private int numero;
+    private Integer numero;
 
-    private int capacidade;
+    private Integer capacidade;
 }
