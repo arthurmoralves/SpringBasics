@@ -23,7 +23,7 @@ import static org.mockito.Mockito.when;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(SpringExtension.class)
-public class SessaoServiceTest {
+class SessaoServiceTest {
 
     @InjectMocks
     SessaoService sessaoService;

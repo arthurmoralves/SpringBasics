@@ -17,11 +17,5 @@ public class SessaoDto {
     private Long id;
     private BigDecimal valor;
     private String titulo;
-    private SalaEntity sala;
-
-    public SessaoDto(SessaoEntity sessaoEntity) {
-        this.valor = sessaoEntity.getValor();
-        this.titulo = sessaoEntity.getTitulo();
-        this.sala = sessaoEntity.getSala();
-    }
+    private SalaDto sala;
 }

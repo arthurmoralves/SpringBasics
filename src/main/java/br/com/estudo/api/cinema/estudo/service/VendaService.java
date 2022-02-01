@@ -41,11 +41,7 @@ public class VendaService {
 
     public Page<VendaDto> consultarVendas(Pageable page){
         var listaVendas = vendaRepository.findAll(page);
-        return converter(listaVendas);
-    }
-
-    private Page<VendaDto> converter(Page<VendaEntity> vendasEntity){
-        return vendasEntity.map(vendaEntity -> vendaMapper.marshall(vendaEntity));
+        return vendaMapper.converter(listaVendas);
     }
 
     public VendaDto cadastrarVenda(VendaDto vendaDto) {

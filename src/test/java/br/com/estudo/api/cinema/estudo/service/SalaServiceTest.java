@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @ExtendWith(SpringExtension.class )
-public class SalaServiceTest {
+class SalaServiceTest {
 
     @InjectMocks
     SalaService salaService;
