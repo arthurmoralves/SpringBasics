@@ -11,5 +11,5 @@ public interface VendaRepository extends JpaRepository<VendaEntity, Long> {
     @Query(value = "SELECT COUNT(SESSAO.SESSAO_ID) " +
             "FROM VENDA_ENTITY VENDA INNER JOIN VENDA_SESSAO SESSAO ON VENDA.ID = SESSAO.VENDA_ID" +
             " WHERE SESSAO_ID = id", nativeQuery = true)
-    int countBySessaoId(Long id);
+    Integer countBySessaoId(Long id);
 }

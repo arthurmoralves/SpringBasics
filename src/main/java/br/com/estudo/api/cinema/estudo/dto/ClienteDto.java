@@ -2,6 +2,9 @@ package br.com.estudo.api.cinema.estudo.dto;
 
 import lombok.*;
 
+import javax.persistence.Embedded;
+import java.time.LocalDate;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -11,7 +14,10 @@ import lombok.*;
 public class ClienteDto {
 
     private Long id;
+
+    @Embedded
     private String CPF;
+
     private String nome;
-    private String dataNasc;
+    private LocalDate dataNasc;
 }

@@ -44,9 +44,9 @@ public class CinemaController {
     }
 
     @GetMapping("/sessoes")
-    public Page<SessaoDto> consultarSessao(@RequestParam int pagina, int qtd){
+    public Page<SessaoDto> consultarSessao(@RequestParam int pag, int qtd){
 
-        Pageable page = PageRequest.of(pagina, qtd);
+        Pageable page = PageRequest.of(pag, qtd);
         var sessao = sessaoService.consultar(page);
         return sessao;
     }
@@ -73,13 +73,13 @@ public class CinemaController {
 
     @GetMapping("/vendas")
     public Page<VendaDto> consultarVendas(@RequestParam int pagina, int qtd){
-        Pageable page = PageRequest.of(pagina, qtd);
+        var page = PageRequest.of(pagina, qtd);
         return vendaService.consultarVendas(page);
     }
 
     @GetMapping("/salas")
     public Page<SalaDto> consultarsalas(@RequestParam int pagina, int qtd){
-        Pageable page = PageRequest.of(pagina, qtd);
+        var page = PageRequest.of(pagina, qtd);
         return salaService.consultarSalas(page);
     }
 

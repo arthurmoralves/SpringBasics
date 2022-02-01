@@ -3,6 +3,7 @@ package br.com.estudo.api.cinema.estudo.mapper;
 import br.com.estudo.api.cinema.estudo.entity.SessaoEntity;
 import br.com.estudo.api.cinema.estudo.dto.SessaoDto;
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -19,4 +20,5 @@ public class SessaoMapper {
     public SessaoEntity unmarshall(SessaoDto sessaoDto){
         return modelMapper.map(sessaoDto, SessaoEntity.class);
     }
+
 }

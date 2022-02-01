@@ -3,7 +3,7 @@ package br.com.estudo.api.cinema.estudo.service;
 import br.com.estudo.api.cinema.estudo.dto.SalaDto;
 import br.com.estudo.api.cinema.estudo.entity.SalaEntity;
 import br.com.estudo.api.cinema.estudo.repository.SalaRepository;
-import br.com.estudo.api.cinema.estudo.util.CinemaFactoryTest;
+import br.com.estudo.api.cinema.estudo.util.CinemaTestClassBuilder;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @ExtendWith(SpringExtension.class )
-public class SalaServiceTest {
+class SalaServiceTest {
 
     @InjectMocks
     SalaService salaService;
@@ -29,7 +29,7 @@ public class SalaServiceTest {
     @Mock
     SalaRepository salaRepository;
 
-    CinemaFactoryTest cinemaFactoryTest = new CinemaFactoryTest();
+    CinemaTestClassBuilder cinemaTestClassBuilder = new CinemaTestClassBuilder();
 
     @Test
     public void deveTestarConsultaDeSalas(){
@@ -37,10 +37,10 @@ public class SalaServiceTest {
         List<SalaDto> salasDto = new ArrayList<>();
         Pageable page = PageRequest.of(1, 1);
 
-        var sala1 = cinemaFactoryTest.mockSalaEntity();
-        var sala2 = cinemaFactoryTest.mockSalaEntity();
-        var salaDto1 = cinemaFactoryTest.mockSalaDto();
-        var salaDto2 = cinemaFactoryTest.mockSalaDto();
+        var sala1 = cinemaTestClassBuilder.mockSalaEntity();
+        var sala2 = cinemaTestClassBuilder.mockSalaEntity();
+        var salaDto1 = cinemaTestClassBuilder.mockSalaDto();
+        var salaDto2 = cinemaTestClassBuilder.mockSalaDto();
 
         salas.add(sala1);
         salas.add(sala2);

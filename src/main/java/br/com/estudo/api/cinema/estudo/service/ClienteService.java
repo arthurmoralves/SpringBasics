@@ -3,6 +3,7 @@ package br.com.estudo.api.cinema.estudo.service;
 import br.com.estudo.api.cinema.estudo.mapper.ClienteMapper;
 import br.com.estudo.api.cinema.estudo.dto.ClienteDto;
 import br.com.estudo.api.cinema.estudo.repository.ClienteRepository;
+import br.com.estudo.api.cinema.estudo.util.CpfValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,8 +16,16 @@ public class ClienteService {
     @Autowired
     private ClienteMapper clienteMapper;
 
-    public ClienteDto cadastrar(ClienteDto clienteDto){
-        var clienteEntity = clienteMapper.unmarshall(clienteDto);
-        return clienteMapper.marshall(clienteRepository.save(clienteEntity));
+    public ClienteDto cadastrar(ClienteDto clienteDto) {
+        var valido = CpfValidator.isCPFValido(clienteDto.getCPF());
+
+        if (valido) {
+            var clienteEntity = clienteMapper.unmarshall(clienteDto);
+            return clienteMapper.marshall(clienteRepository.save(clienteEntity));
+//        } else {
+//            return
+//        }
+        }
+        return null;
     }
 }

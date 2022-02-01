@@ -3,6 +3,7 @@ package br.com.estudo.api.cinema.estudo.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Getter
@@ -21,5 +22,5 @@ public class ClienteEntity {
     private String CPF;
 
     private String nome;
-    private String dataNasc;
+    private LocalDate dataNasc;
 }
